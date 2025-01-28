@@ -1,0 +1,65 @@
+1. Criptografia Simétrica
+    A criptografia simétrica utiliza uma única chave secreta para criptografar e descriptografar os dados. 
+Tanto o remetente quanto o destinatário precisam compartilhar essa chave, o que torna a troca inicial da chave um ponto vulnerável.
+
+Exemplo de funcionamento:
+    - O remetente usa a chave para criptografar uma mensagem.
+    - O destinatário usa a mesma chave para descriptografar a mensagem.
+
+Exemplo de Algoritmo:
+    - AES (Advanced Encryption Standard): Muito usado para proteger dados em sistemas, como armazenamento em nuvem.
+    - DES (Data Encryption Standard): Um método mais antigo e menos seguro atualmente.
+
+Vantagem:
+    - É rápido e eficiente para grandes volumes de dados.
+
+Desvantagem:
+    - A necessidade de compartilhar a chave de forma segura.
+
+
+2. Criptografia Assimétrica
+Na criptografia assimétrica, há um par de chaves: 
+    - Chave pública: usada para criptografar os dados.
+    - Chave privada: usada para descriptografar os dados.
+
+Exemplo de funcionamento:
+    - O remetente usa a chave pública do destinatário para criptografar a mensagem.
+    - O destinatário usa sua chave privada correspondente para descriptografá-la.
+
+Exemplo de Algoritmo:
+    - RSA (Rivest-Shamir-Adleman): Muito usado em conexões HTTPS e para assinaturas digitais.
+    - ECC (Elliptic Curve Cryptography): Mais eficiente para dispositivos móveis e IoT.
+
+Vantagem:
+    - Não é necessário compartilhar a chave privada.
+    - Ideal para comunicação segura entre pessoas que não se conhecem.
+
+Desvantagem:
+    - Mais lento que a criptografia simétrica.
+
+
+3. Vulnerabilidades em Aplicações Web
+    São falhas de segurança que podem ser exploradas por atacantes para roubar dados, manipular informações ou comprometer sistemas.
+
+Principais vulnerabilidades:
+
+    SQL Injection:
+        - O atacante insere comandos SQL maliciosos em campos de entrada para manipular o banco de dados.
+        - Exemplo: Em um campo de login, o invasor insere: `1=1; DROP TABLE users; --`
+
+    Cross-Site Scripting (XSS):
+        - Permite que scripts maliciosos sejam inseridos em páginas web confiáveis, afetando outros usuários.
+        - Exemplo: Um atacante insere um script no campo de comentários de um site, que rouba os cookies dos usuários que visualizam a página.
+
+    Cross-Site Request Forgery (CSRF):
+        - Explora a confiança de um usuário autenticado, forçando-o a realizar ações indesejadas.
+        - Exemplo: Um link malicioso enviado por e-mail faz com que o usuário, sem perceber, realize uma transferência bancária.
+
+    Insecure Direct Object References (IDOR):
+        - A aplicação não verifica se o usuário tem permissão para acessar determinados recursos.
+        - Exemplo: Um invasor altera manualmente uma URL como `www.site.com/user/123` para `www.site.com/user/456` e acessa dados de outro usuário.
+
+Como mitigar essas vulnerabilidades:
+    - Usar validação de entrada.
+    - Implementar autenticação forte e tokens de segurança.
+    - Aplicar práticas de desenvolvimento seguro (ex.: frameworks com proteção embutida).
